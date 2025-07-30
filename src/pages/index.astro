@@ -1,16 +1,40 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+
+const data: any[] = [
+  {
+    title: "Education",
+    lineItems: [
+      {
+        title: "Florida Gulf Coast University",
+        subtitle: "Bachelor of Science in Software Engineering",
+        date: "Fall 2025 - Spring 2029",
+        location: "Fort Myers, FL",
+        points: [
+			{
+				description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget non nisi elit. Sed sed libero ut nunc."
+			}]
+      }
+		]
+	}
+]
 ---
 
 <Layout>
-	<section class="flex flex-col gap-y-1 m-8">
-	<h1 class="mx-auto font-bold text-xl">Tyler Tocket</h1>
-	<div class="mx-auto flex gap-x-4">
-		<p>Fort Myers, FL</p>
-		<span>|</span>
-		<p><href>tyler@velocityforgelabs.com</href></p>
-		<span>|</span>
-		<p><href>linkedin.com/in/tyler-tocket</href></p>
-	</div>
+	<section class="flex flex-col gap-y-1">
+		<h1 class="mx-auto font-semibold text-2xl tracking-wide">Tyler Tocket</h1>
+		<div class="mx-auto flex flex-col md:flex-row gap-x-4">
+			<p class="mx-auto">Fort Myers, FL</p>
+			<span class="hidden md:block">|</span>
+			<p class="mx-auto "><a href="mailto:tyler@velocityforgelabs.com">tyler@velocityforgelabs.com</a></p>
+			<span class="hidden md:block">|</span>
+			<p class="mx-auto"><a target="_blank" href="https://www.linkedin.com/in/tyler-tocket">linkedin.com/in/tyler-tocket</a></p>
+		</div>
+		
 	</section>
+		{data.map(section => (
+			<Section {...section} />
+			))
+		}
 </Layout>

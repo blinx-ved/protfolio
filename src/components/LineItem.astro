@@ -1,0 +1,21 @@
+---
+import Point from '../components/Point.astro';
+
+const { title, subtitle, date, location, points } = Astro.props;
+---
+
+<section class="flex flex-col mb-8">
+    <section class="flex flex-row justify-between">
+        <h1 class="font-medium text-lg">{title}</h1>
+        <h1 class="">{location}</h1>
+    </section>
+    <section class="flex flex-row justify-between">
+        <h1 class="italic">{subtitle}</h1>
+        <h1 class="">{date}</h1>
+    </section>
+    <ul class="list-disc list-inside">
+    {points.map((point: any) => (
+        <Point description={point.description} />
+    ))}
+    </ul>
+</section>
